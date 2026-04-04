@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# 🚀 Dashboard com Autenticação JWT (React + FastAPI)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicação fullstack com autenticação completa utilizando JWT (access + refresh token), com interface moderna em tema dark.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📌 Sobre o projeto
 
-### `npm start`
+Este projeto simula um sistema real de autenticação e dashboard, incluindo:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Fluxo completo de login
+- Proteção de rotas
+- Refresh automático de token
+- Integração entre frontend e backend
+- Interface moderna com tema dark (lavanda + magenta)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✨ Funcionalidades
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 🔐 Login com autenticação JWT
+- 🔁 Refresh automático do access token
+- 🚫 Rotas protegidas (Protected Routes)
+- 🚪 Logout funcional
+- 📊 Dashboard com informações do usuário
+- 🎨 Interface moderna (Dark UI)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Tecnologias utilizada
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Frontend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React
+- React Router
+- Fetch API
+- CSS customizado (Dark Theme)
 
-### `npm run eject`
+### Backend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- FastAPI
+- JWT (Access + Refresh Token)
+- Python
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🔗 Backend da aplicação
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+A API utilizada neste projeto está disponível em:
 
-## Learn More
+👉 <https://github.com/danieldougtattoo-droid/SEU-REPO-BACKEND>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📸 Preview da aplicação
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🔐 Tela de Login
 
-### Code Splitting
+![Login](./screenshots/login.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 📊 Dashboard
 
-### Analyzing the Bundle Size
+![Dashboard](./screenshots/dashboard.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## ▶️ Como rodar o projeto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 🔹 Frontend
 
-### Advanced Configuration
+```bash
+npm install
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+A aplicação estará disponível em: 👉 <http://localhost:3000>
 
-### Deployment
+### 🔹 Backend (FastAPI)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+uvicorn main:app --reload
+```
 
-### `npm run build` fails to minify
+A API estará disponível em: 👉 <http://localhost:8000>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## ⚠️ Observações
+
+- Certifique-se de que o backend está rodando antes de iniciar o frontend
+- As URLs da API podem ser ajustadas conforme ambiente (.env)
+
+---
+
+## 🤖 Uso de Inteligência Artificial
+
+Este projeto foi desenvolvido com o auxílio de ferramentas de Inteligência Artificial para acelerar a resolução de problemas, estruturar a arquitetura e otimizar o fluxo de desenvolvimento.
+
+Toda a implementação, entendimento da lógica e integração entre frontend e backend foram conduzidos de forma ativa, com foco em aprendizado e aplicação prática dos conceitos.
+
+---
+
+## 📌 Objetivo do projeto
+
+Este projeto foi desenvolvido com foco em:
+
+- Prática de autenticação moderna (JWT)
+- Simulação de fluxo real de aplicação
+- Construção de interface profissional
+- Preparação para uso em portfólio
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por Daniel 🚀
