@@ -1,6 +1,6 @@
 import { devLog } from '../utils/devLog';
 
-const BASE_URL = 'http://localhost:8000/api/v1';
+const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1';
 
 function normalizeToken(raw) {
     if (raw == null || typeof raw !== 'string') return null;
