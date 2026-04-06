@@ -1,6 +1,6 @@
 # 🚀 Dashboard com Autenticação JWT (React + FastAPI)
 
-Aplicação fullstack com autenticação JWT (access + refresh token), integração com PostgreSQL em ambiente de produção e interface moderna em tema dark.
+Aplicação fullstack com autenticação completa utilizando JWT (access + refresh token), com interface moderna em tema dark.
 
 ---
 
@@ -43,10 +43,6 @@ Este projeto simula um sistema real de autenticação e dashboard, incluindo:
 - Python
 
 ---
-
-### Banco de Dados
-
-- PostgreSQL (hospedado no Render)
 
 ## 🔗 Backend da aplicação
 
