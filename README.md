@@ -8,7 +8,7 @@ Aplicação fullstack com autenticação JWT (access + refresh token), integraç
 
 ## 📌 Sobre o projeto
 
-Este projeto simula um sistema real de autenticação e dashboard, incluindo:
+Este projeto implementa um sistema completo de autenticação e dashboard, incluindo:
 
 - Fluxo completo de login
 - Proteção de rotas
