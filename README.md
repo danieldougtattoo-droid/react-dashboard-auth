@@ -2,7 +2,9 @@
 
 Aplicação fullstack com autenticação JWT (access + refresh token), integração com PostgreSQL em ambiente de produção e interface moderna em tema dark.
 
----
+🔗 Aplicação online: <https://react-dashboard-auth-iota.vercel.app>
+
+🔗 API: <https://web-production-ea97e.up.railway.app/docs>
 
 ## 📌 Sobre o projeto
 
@@ -27,7 +29,7 @@ Este projeto simula um sistema real de autenticação e dashboard, incluindo:
 
 ---
 
-## 🛠️ Tecnologias utilizada
+## 🛠️ Tecnologias utilizadas
 
 ### Frontend
 
@@ -40,19 +42,16 @@ Este projeto simula um sistema real de autenticação e dashboard, incluindo:
 
 - FastAPI
 - JWT (Access + Refresh Token)
-- Python
+- PostgreSQL
+- SQLAlchemy
 
 ---
-
-### Banco de Dados
-
-- PostgreSQL (hospedado no Render)
 
 ## 🔗 Backend da aplicação
 
 A API utilizada neste projeto está disponível em:
 
-👉 <https://github.com/danieldougtattoo-droid/SEU-REPO-BACKEND>
+👉 <https://github.com/danieldougtattoo-droid/fastapi-todo-api>
 
 ## 📸 Preview da aplicação
 
