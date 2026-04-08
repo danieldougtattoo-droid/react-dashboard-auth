@@ -66,6 +66,21 @@ export async function login(email, password) {
     };
 }
 
+export async function register(email, password) {
+    const response = await fetch(`${BASE_URL}/register`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email, password: password }),
+    });
+};
+        const data = await response.json().catch(() => ({}));
+    return {
+        ok: response.ok,
+        data,
+    };
+
 export async function createUser(userCreate) {
     const response = await fetch(`${BASE_URL}/users`, {
         method: 'POST',
