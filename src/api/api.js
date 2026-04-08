@@ -2,6 +2,18 @@ import { devLog } from '../utils/devLog';
 
 const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1';
 
+const NETWORK_MSG =
+    'Sem ligação ao servidor. Verifique a internet ou tente de novo dentro de instantes.';
+
+function fetchErrorResult(err) {
+    devLog('[api] fetch falhou:', err?.message || err);
+    return {
+        ok: false,
+        data: { detail: NETWORK_MSG },
+        networkError: true,
+    };
+}
+
 function normalizeToken(raw) {
     if (raw == null || typeof raw !== 'string') return null;
     let t = raw.trim().replace(/^["']|["']$/g, '');
@@ -48,38 +60,55 @@ function clearSession() {
 }
 
 export async function login(email, password) {
-    const response = await fetch(`${BASE_URL}/auth/login`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-            username: email,
-            password: password,
-        }),
-    });
+    try {
+        const response = await fetch(`${BASE_URL}/auth/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                username: email,
+                password: password,
+            }),
+        });
 
-    const data = await response.json().catch(() => ({}));
+        const data = await response.json().catch(() => ({}));
+        return {
+            ok: response.ok,
+            data,
+        };
+    } catch (err) {
+        return fetchErrorResult(err);
+    }
+}
+
+/** Corpo típico FastAPI: email, password, full_name. */
+export function buildUserCreatePayload({ name, email, password }) {
     return {
-        ok: response.ok,
-        data,
+        email: (email || '').trim(),
+        password,
+        full_name: (name || '').trim(),
     };
 }
 
 export async function createUser(userCreate) {
-    const response = await fetch(`${BASE_URL}/users`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userCreate),
-    });
-    const data = await response.json().catch(() => ({}));
-    return {
-        ok: response.ok,
-        data,
-        status: response.status,
-    };
+    try {
+        const response = await fetch(`${BASE_URL}/users`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(buildUserCreatePayload(userCreate)),
+        });
+        const data = await response.json().catch(() => ({}));
+        return {
+            ok: response.ok,
+            data,
+            status: response.status,
+        };
+    } catch (err) {
+        return fetchErrorResult(err);
+    }
 }
 
 let refreshPromise = null;

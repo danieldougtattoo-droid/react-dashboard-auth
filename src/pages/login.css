@@ -2,10 +2,13 @@
 
 .login-bg {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: clamp(1.25rem, 4vw, 2.5rem);
+  padding-bottom: max(2rem, env(safe-area-inset-bottom, 0px));
+  box-sizing: border-box;
   background: #0c0c10;
   background-image:
     radial-gradient(ellipse 80% 50% at 50% -20%, rgba(124, 58, 237, 0.25), transparent),
@@ -61,6 +64,14 @@
   color: #55556a;
 }
 
+/* Link de cadastro no topo: visível logo ao abrir (telemóveis com cache antigo: redeploy + limpar dados do site) */
+.login-top-register {
+  margin: 0 0 1rem;
+  text-align: center;
+  font-size: 0.9375rem;
+  color: #cbd5e1;
+}
+
 .login-error {
   padding: 0.65rem 0.85rem;
   margin-bottom: 1rem;
@@ -69,6 +80,67 @@
   background: rgba(239, 68, 68, 0.12);
   border: 1px solid rgba(239, 68, 68, 0.35);
   color: #fca5a5;
+}
+
+.login-success {
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #86efac;
+}
+
+.login-footer {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: #94a3b8;
+}
+
+.login-link {
+  color: #c4b5fd;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.login-link:hover {
+  color: #ddd6fe;
+}
+
+/* Botão secundário: visível no telemóvel (área de toque ≥ 44px) */
+.login-btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 2px solid #7c3aed;
+  background: transparent;
+  color: #c4b5fd;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.login-btn-secondary:hover {
+  background: rgba(124, 58, 237, 0.15);
+  color: #ede9fe;
+  border-color: #a78bfa;
+}
+
+.login-btn-secondary:active {
+  transform: scale(0.98);
 }
 
 .login-form {
@@ -133,4 +205,31 @@
 .login-btn:disabled {
   opacity: 0.55;
   cursor: not-allowed;
+}
+
+/* Telemóvel: toque mais rápido, sem highlight cinzento forte; iOS não dá zoom ao focar (inputs ≥16px) */
+.login-bg .login-input,
+.login-bg .login-btn,
+.login-bg .login-btn-secondary {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(124, 58, 237, 0.15);
+}
+
+@media (max-width: 480px) {
+  .login-bg {
+    align-items: flex-start;
+    padding-top: max(1rem, env(safe-area-inset-top, 0px));
+    padding-left: max(1rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1rem, env(safe-area-inset-right, 0px));
+  }
+
+  .login-bg .login-input {
+    font-size: 16px;
+  }
+
+  .login-bg .login-btn,
+  .login-bg .login-btn-secondary {
+    font-size: 16px;
+    min-height: 48px;
+  }
 }

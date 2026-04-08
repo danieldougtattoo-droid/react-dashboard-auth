@@ -1,6 +1,6 @@
 import './login.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { login, setSession } from '../api/api';
 import { useAuth } from '../context/AuthContext';
 import { devError, devLog } from '../utils/devLog';
@@ -18,7 +18,7 @@ function Login() {
         setLoading(true);
         setError('');
         try {
-            const res = await login(email, password);
+            const res = await login(email.trim(), password);
             devLog('RES.DATA:', res.data);
 
             if (!res.ok) {
@@ -74,6 +74,13 @@ function Login() {
             <h1 className="login-title">Entrar</h1>
             <p className="login-sub">Bem-vindo de volta!</p>
           </div>
+
+          <p className="login-top-register">
+            Novo utilizador?{' '}
+            <Link className="login-link" to="/register">
+              Criar conta
+            </Link>
+          </p>
   
           {error && <div className="login-error">{error}</div>}
   
@@ -106,7 +113,14 @@ function Login() {
               {loading ? 'Carregando...' : 'Entrar'}
             </button>
           </form>
-  
+
+          <Link className="login-btn-secondary" to="/register">
+            Cadastrar
+          </Link>
+
+          <p className="login-footer">
+            Não tem conta? Use o botão acima para criar sua conta.
+          </p>
         </div>
       </div>
     );
